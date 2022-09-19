@@ -1,13 +1,14 @@
 package com.bank.repository;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Repository<T> {
 
     List<T> getAll(Connection connection);
 
-    T searchByAccountNumber(Connection connection, int accountNumber);
+    T searchByAccountNumber(Connection connection, int accountNumber) throws SQLException;
 
     void updateFirstName(Connection connection, int firstName, int accountNumber);
 

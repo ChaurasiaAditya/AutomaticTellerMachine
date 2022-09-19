@@ -3,6 +3,9 @@ package com.bank.repository;
 import com.bank.model.ATM;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +17,19 @@ public class AtmRepository implements Repository<ATM> {
     }
 
     @Override
-    public ATM searchByAccountNumber(Connection connection, int accountNumber) {
+    public ATM searchByAccountNumber(Connection connection, int accountNumber) throws SQLException {
         ATM atm = new ATM();
+        String query = "SELECT * FROM `bank`.`atm` WHERE (`Account_Number` = ? )";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1,accountNumber);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+            }
+
+        }
         return null;
     }
 
