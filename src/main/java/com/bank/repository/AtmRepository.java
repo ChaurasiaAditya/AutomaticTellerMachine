@@ -12,4 +12,8 @@ public class AtmRepository {
     public AtmRepository() {
         this.connection = null;
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }
