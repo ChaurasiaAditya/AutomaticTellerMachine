@@ -15,4 +15,36 @@ public class ATM {
         this.accountNumber = accountNumber;
         this.atmPin = atmPin;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public int getAtmPin() {
+        return atmPin;
+    }
+
+    public void setAtmPin(int atmPin) {
+        this.atmPin = atmPin;
+    }
 }
