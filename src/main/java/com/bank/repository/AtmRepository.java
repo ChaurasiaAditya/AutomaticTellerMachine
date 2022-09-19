@@ -15,6 +15,7 @@ public class AtmRepository implements Repository<ATM> {
 
     @Override
     public ATM searchByAccountNumber(Connection connection, int accountNumber) {
+        ATM atm = new ATM();
         return null;
     }
 
