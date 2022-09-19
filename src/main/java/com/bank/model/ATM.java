@@ -61,4 +61,14 @@ public class ATM {
     public int hashCode() {
         return Objects.hash(getFirstName(), getLastName(), getAccountNumber(), getAtmPin());
     }
+
+    @Override
+    public String toString() {
+        return "ATM{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", atmPin=" + atmPin +
+                '}';
+    }
 }
