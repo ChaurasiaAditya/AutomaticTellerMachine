@@ -1,4 +1,4 @@
-package com.Bank.service;
+package com.bank.service;
 
 public class DatabaseService {
 }
