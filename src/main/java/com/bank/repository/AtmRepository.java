@@ -3,11 +3,13 @@ package com.bank.repository;
 import com.bank.model.ATM;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AtmRepository implements Repository<ATM> {
     @Override
     public List<ATM> getAll(Connection connection) {
+        List<ATM> atmList = new ArrayList<>();
         return null;
     }
 
