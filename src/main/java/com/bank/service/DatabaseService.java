@@ -1,6 +1,8 @@
 package com.bank.service;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DatabaseService {
     private static final String USERNAME = "root";
@@ -17,7 +19,13 @@ public class DatabaseService {
         return connection;
     }
 
-    public void printConnect(){
+    public void printConnect() throws SQLException {
+        // create a connection object
+        connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
+        // print the connection status
+        if (connection != null) {
+            System.out.println("\u001B[32m Connected SuccessFully\u001B[0m");
+        } else System.out.println("Connection Failed");
     }
 }
