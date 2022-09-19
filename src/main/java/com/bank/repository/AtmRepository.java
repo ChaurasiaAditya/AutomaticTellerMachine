@@ -3,13 +3,27 @@ package com.bank.repository;
 import com.bank.model.ATM;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AtmRepository implements Repository<ATM> {
     @Override
-    public List<ATM> getAll(Connection connection) {
+    public List<ATM> getAll(Connection connection) throws SQLException {
         List<ATM> atmList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM `atm`;";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(selectQuery);
+            while (resultSet.next()) {
+                ATM atm = new ATM();
+                atm.setFirstName(resultSet.getString("First_Name"));
+                atm.setLastName(resultSet.getString("Last_Name"));
+                atm.setAccountNumber(resultSet.getInt("Account_Number"));
+                // atm.setAccountBalance(resultSet.getDouble("Amount_Saving_Account"));
+            }
+        }
         return null;
     }
 
