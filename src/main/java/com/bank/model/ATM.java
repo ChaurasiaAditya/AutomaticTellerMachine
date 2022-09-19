@@ -1,5 +1,7 @@
 package com.bank.model;
 
+import java.util.Objects;
+
 public class ATM {
     private String firstName;
     private String lastName;
@@ -46,5 +48,17 @@ public class ATM {
 
     public void setAtmPin(int atmPin) {
         this.atmPin = atmPin;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ATM atm)) return false;
+        return getAccountNumber() == atm.getAccountNumber() && getAtmPin() == atm.getAtmPin() && Objects.equals(getFirstName(), atm.getFirstName()) && Objects.equals(getLastName(), atm.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getAccountNumber(), getAtmPin());
     }
 }
