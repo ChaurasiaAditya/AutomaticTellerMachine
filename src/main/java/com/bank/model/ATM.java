@@ -64,11 +64,6 @@ public class ATM {
 
     @Override
     public String toString() {
-        return "ATM{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", accountNumber=" + accountNumber +
-                ", atmPin=" + atmPin +
-                '}';
+        return "ATM{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", accountNumber=" + accountNumber + ", atmPin=" + atmPin + '}';
     }
 }
