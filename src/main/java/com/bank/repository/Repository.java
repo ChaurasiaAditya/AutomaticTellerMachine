@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Repository<T> {
 
-    List<T> getAll(Connection connection);
+    List<T> getAll(Connection connection) throws SQLException;
 
     T searchByAccountNumber(Connection connection, int accountNumber) throws SQLException;
 

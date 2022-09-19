@@ -3,33 +3,33 @@ package com.bank.repository;
 import com.bank.model.ATM;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AtmRepository implements Repository<ATM> {
     @Override
-    public List<ATM> getAll(Connection connection) {
+    public List<ATM> getAll(Connection connection) throws SQLException {
         List<ATM> atmList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM `atm`;";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(selectQuery);
+            while (resultSet.next()) {
+                ATM atm = new ATM();
+                atm.setFirstName(resultSet.getString("First_Name"));
+                atm.setLastName(resultSet.getString("Last_Name"));
+                atm.setAccountNumber(resultSet.getInt("Account_Number"));
+                // atm.setAccountBalance(resultSet.getDouble("Amount_Saving_Account"));
+            }
+        }
         return null;
     }
 
     @Override
-    public ATM searchByAccountNumber(Connection connection, int accountNumber) throws SQLException {
+    public ATM searchByAccountNumber(Connection connection, int accountNumber) {
         ATM atm = new ATM();
-        String query = "SELECT * FROM `bank`.`atm` WHERE (`Account_Number` = ? )";
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1,accountNumber);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()){
-
-            }
-
-        }
         return null;
     }
 
